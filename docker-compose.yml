@@ -1,12 +1,19 @@
 version: '3'
 services:
+  app-prometheus-division2:
+    image: app-prometheus-division2
+    container_name: app-prometheus-division2
+    ports:
+      - 8000:8000
   prometheus:
     image: prom/prometheus
     container_name: prometheus-divisoin2
     volumes:
-      - /home/thirai/prometheus-division2/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
+    links:
+      - app-prometheus-division2
   grafana:
     image: grafana/grafana
     container_name: grafana-division2

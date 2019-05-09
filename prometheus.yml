@@ -13,4 +13,4 @@ scrape_configs:
       - targets: ['127.0.0.1:9090']
   - job_name: 'division2'
     static_configs:
-      - targets: ['10.0.1.250:8000']
+      - targets: ['app-prometheus-division2:8000']
