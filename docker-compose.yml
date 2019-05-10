@@ -6,6 +6,7 @@ services:
     ports:
       - 8000:8000
     restart: always
+    build: .
   prometheus:
     image: prom/prometheus
     container_name: prometheus-divisoin2
