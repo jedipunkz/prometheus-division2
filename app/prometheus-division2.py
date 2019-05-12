@@ -45,7 +45,8 @@ class D2():
         except Exception as e:
             return False, False, False, False, False, False, \
                    False, False, False, False, False, False, \
-                   False, False, False, False, False
+                   False, False, False, False, False, False, \
+                   False
         else:
             timeplayed_total = int(r.json()['timeplayed_total'] / 3600)
             timeplayed_dz = int(r.json()['timeplayed_dz'] / 3600)
@@ -64,13 +65,15 @@ class D2():
             kills_pve_dz_outcasts = r.json()['kills_pve_dz_outcasts']
             kills_pve_dz_blacktusk = r.json()['kills_pve_dz_blacktusk']
             kills_pve_dz_truesons = r.json()['kills_pve_dz_truesons']
+            kills_headshot = r.json()['kills_headshot']
+            headshots = r.json()['headshots']
             return timeplayed_total, timeplayed_dz, timeplayed_pve, \
                    timeplayed_pvp, timeplayed_rogue, level_pve, \
                    level_dz, kills_npc, kills_pvp, kills_pve_hyenas, \
                    kills_pve_outcasts, kills_pve_blacktusk, \
                    kills_pve_truesons, kills_pve_dz_hyenas, \
                    kills_pve_dz_outcasts, kills_pve_dz_blacktusk, \
-                   kills_pve_dz_truesons
+                   kills_pve_dz_truesons, kills_headshot, headshots
 
 
 def main():
@@ -84,7 +87,8 @@ def main():
             'kills_pve_outcasts', 'kills_pve_blacktusk',
             'kills_pve_truesons', 'kills_pve_dz_hyenas',
             'kills_pve_dz_outcasts', 'kills_pve_dz_blacktusk',
-            'kills_pve_dz_truesons']
+            'kills_pve_dz_truesons', 'kills_headshot',
+            'headshots']
     dict = {}
     for user in users:
         for var in vars:
@@ -107,7 +111,8 @@ def main():
                             'kills_pve_hyenas': value[9], 'kills_pve_outcasts': value[10],
                             'kills_pve_blacktusk': value[11], 'kills_pve_truesons': value[12],
                             'kills_pve_dz_hyenas': value[13], 'kills_pve_dz_outcasts': value[14],
-                            'kills_pve_dz_blacktusk': value[15], 'kills_pve_dz_truesons': value[16]}
+                            'kills_pve_dz_blacktusk': value[15], 'kills_pve_dz_truesons': value[16],
+                            'kills_headshot': value[17], 'headshots': value[18]}
                     dict[user + '_' + var].set(value_dict[var])
         time.sleep(15)
 
