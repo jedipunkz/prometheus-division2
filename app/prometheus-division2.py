@@ -99,10 +99,10 @@ def main():
 
     while True:
         for user in users:
+            user_id = D2('https://thedivisiontab.com/api/search.php').get_user_id(user)
+            value = D2('https://thedivisiontab.com/api/player.php').get_user_info(user_id)
             for var in vars:
-                user_id = D2('https://thedivisiontab.com/api/search.php').get_user_id(user)
                 if user_id:
-                    value = D2('https://thedivisiontab.com/api/player.php').get_user_info(user_id)
                     value_dict = {'timeplayed_total': value[0],
                             'timeplayed_dz': value[1], 'timeplayed_pve': value[2],
                             'timeplayed_pvp': value[3], 'timeplayed_rogue': value[4],
@@ -114,7 +114,7 @@ def main():
                             'kills_pve_dz_blacktusk': value[15], 'kills_pve_dz_truesons': value[16],
                             'kills_headshot': value[17], 'headshots': value[18]}
                     dict[user + '_' + var].set(value_dict[var])
-        time.sleep(15)
+            time.sleep(1)
 
 
 if __name__ == "__main__":
