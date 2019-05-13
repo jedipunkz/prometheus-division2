@@ -10,39 +10,50 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-- Python3 modules.
-
-```
-pip install requests
-pip install prometheus_client
-```
-
+- Linux OS or macos
+- python3
 - docker
 - docker-compose
 
 ### Boot docker containers
 
-A step by step series of examples that tell you how to get a running
-
 Say what the step will be.
 
 ```bash
-bash run.sh start
+docker-compose build
+docker-compose up --no-start
+docker-compose start
 ```
 
-check the return by exectiong curl command as below.
+Check the return by exectiong curl command as below.
 
 ```bash
 curl http://localhost:8000
 ```
 
-boot docker containers
+And now you can access grafana with a url as below.
+
+http://<your_server_ip>:3000/
+
+### re-deploy applications
+
+Create new branch for new application
 
 ```bash
-docker-compose -f docker-compose.yml create
-docker-compose -f docker-compose.yml start
+git checkout -b some_new_branch
 ```
 
+Modify your application.
+
+```bash
+${EDITOR} app/prometheus-division2.py
+```
+
+Commit, Push, Merge,  and git pull all new applications. and execute `deploy.sh`.
+
+```bash
+bash deploy.sh
+```
 
 ## Deployment
 
