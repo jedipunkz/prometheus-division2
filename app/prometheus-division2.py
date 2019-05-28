@@ -114,7 +114,7 @@ def main():
                             'kills_pve_dz_blacktusk': value[15], 'kills_pve_dz_truesons': value[16],
                             'kills_headshot': value[17], 'headshots': value[18]}
                     dict[user + '_' + var].set(value_dict[var])
-            time.sleep(1)
+            time.sleep(60)
 
 
 if __name__ == "__main__":
